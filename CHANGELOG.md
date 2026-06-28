@@ -5,6 +5,27 @@
 
 # Changelog
 
+## [0.5.1] - 2026-06-28
+
+这次更新把本地开发版调整为 `patdelphi` 增强版，重点改善国内模型下载体验、开发启动流程和项目说明。
+
+### 模型下载
+
+- 默认模型下载源改为 **ModelScope**，首次启动和新模型下载会优先连接 `https://www.modelscope.cn`。
+- 模型页面新增下载源切换，可在 **HuggingFace** 和 **ModelScope** 之间切换。
+- 后端会把下载源设置持久化到本地数据库，并在启动和设置更新时同步到 `HF_ENDPOINT`。
+
+### 开发体验
+
+- 新增 `start-web.ps1`，可一键启动后端 API 和 Web 前端开发服务。
+- 新增 `README.zh-CN.md`，提供中文项目说明、启动方式、下载源说明和常用检查命令。
+- Web 开发配置恢复 React 插件，修复本地依赖缺失导致的页面启动问题。
+
+### 项目信息
+
+- About 页面新增增强者 **patdelphi** 和新项目 GitHub 链接。
+- 版本号更新到 `0.5.1`。
+
 ## [0.5.0] - 2026-04-22
 
 **The Capture release.** Voicebox stops being just a voice-cloning studio and becomes a full AI voice studio. Hold a key anywhere on your machine, speak, release — the transcript lands in the focused text field. Flip the primitive around and any MCP-aware agent — Claude Code, Cursor, Spacebot — speaks back through an on-screen pill in one of your cloned voices. A local LLM sits between the two, so transcripts come out clean and voice profiles can carry a personality that reshapes what the agent says before it gets spoken.
@@ -740,6 +761,7 @@ The first public release of Voicebox — an open-source voice synthesis studio p
 
 Tauri v2, React, TypeScript, Tailwind CSS, FastAPI, Qwen3-TTS, Whisper, SQLite
 
+[0.5.1]: https://github.com/patdelphi/pat-voicebox/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/jamiepine/voicebox/compare/v0.4.5...v0.5.0
 [0.4.5]: https://github.com/jamiepine/voicebox/compare/v0.4.4...v0.4.5
 [0.4.4]: https://github.com/jamiepine/voicebox/compare/v0.4.3...v0.4.4

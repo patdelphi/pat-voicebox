@@ -1147,7 +1147,9 @@
     "about": {
       "tagline": "オープンソースの音声合成スタジオ。ボイスのクローン、音声生成、エフェクトの適用、音声対応アプリの構築まで、すべてローカル環境で実行できます。",
       "createdBy": "作者",
+      "enhancedBy": "拡張者",
       "buyCoffee": "コーヒーをおごる",
+      "projectGitHub": "新プロジェクト GitHub",
       "license": "<link>MIT</link> ライセンス"
     }
   },

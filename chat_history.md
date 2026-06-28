@@ -65,3 +65,10 @@
 - 新增 README.zh-CN.md 中文说明。
 - 验证：模型下载源单测、前端 TypeScript、PowerShell 脚本语法均通过。
 
+
+## 2026-06-28 更新日志和 About 页面
+
+- 版本号更新为 0.5.1。
+- CHANGELOG 顶部新增中文 0.5.1 更新内容。
+- About 页面新增增强者 patdelphi，并把项目 GitHub 链接指向 patdelphi/pat-voicebox。
+

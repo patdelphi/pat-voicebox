@@ -1147,7 +1147,9 @@
     "about": {
       "tagline": "开源语音合成工作室。克隆声音、生成语音、应用效果、构建语音驱动的应用——全部在您的本地机器上运行。",
       "createdBy": "创建者",
+      "enhancedBy": "增强者",
       "buyCoffee": "请我喝杯咖啡",
+      "projectGitHub": "新项目 GitHub",
       "license": "采用 <link>MIT</link> 协议"
     }
   },

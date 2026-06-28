@@ -1147,7 +1147,9 @@
     "about": {
       "tagline": "開源語音合成工作室。複製聲音、生成語音、套用效果、打造語音驅動的應用程式——全部在您的本機執行。",
       "createdBy": "作者",
+      "enhancedBy": "增強者",
       "buyCoffee": "請我喝杯咖啡",
+      "projectGitHub": "新專案 GitHub",
       "license": "採用 <link>MIT</link> 授權"
     }
   },
