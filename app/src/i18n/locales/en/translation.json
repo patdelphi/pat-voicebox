@@ -1172,6 +1172,12 @@
       "reset": "Reset",
       "pickerTitle": "Choose model storage folder"
     },
+    "downloadSource": {
+      "label": "Download source",
+      "description": "Choose where new model downloads connect first.",
+      "hf": "HuggingFace",
+      "ms": "ModelScope"
+    },
     "progress": {
       "connecting": "Connecting…",
       "connectingHf": "Connecting to HuggingFace…"

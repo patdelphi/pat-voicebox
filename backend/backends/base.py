@@ -16,6 +16,7 @@ import numpy as np
 from ..utils.audio import normalize_audio, load_audio
 from ..utils.progress import get_progress_manager
 from ..utils.hf_progress import HFProgressTracker, create_hf_progress_callback
+from ..utils.model_source import get_current_model_download_source_label
 from ..utils.tasks import get_task_manager
 
 logger = logging.getLogger(__name__)
@@ -270,7 +271,7 @@ def model_load_progress(
             model_name=model_name,
             current=0,
             total=0,
-            filename="Connecting to HuggingFace...",
+            filename=f"Connecting to {get_current_model_download_source_label()}...",
             status="downloading",
         )
 

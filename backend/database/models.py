@@ -231,6 +231,7 @@ class GenerationSettings(Base):
     crossfade_ms = Column(Integer, nullable=False, default=50)
     normalize_audio = Column(Boolean, nullable=False, default=True)
     autoplay_on_generate = Column(Boolean, nullable=False, default=True)
+    model_download_source = Column(String, nullable=False, default="ms")
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 

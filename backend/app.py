@@ -255,6 +255,10 @@ async def _run_startup(application: FastAPI) -> None:
         generation_count = db.query(DBGeneration).count()
         logger.info("Profiles: %d, Generations: %d", profile_count, generation_count)
 
+        from .services import settings as settings_service
+
+        settings_service.get_generation_settings(db)
+
         db.commit()
     except Exception as e:
         db.rollback()

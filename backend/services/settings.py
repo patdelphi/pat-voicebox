@@ -17,6 +17,7 @@ from ..utils.capture_chords import (
     default_push_to_talk_chord,
     default_toggle_to_talk_chord,
 )
+from ..utils.model_source import apply_model_download_source
 
 
 SINGLETON_ID = 1
@@ -79,7 +80,9 @@ def update_capture_settings(db: Session, patch: dict[str, Any]) -> DBCaptureSett
 
 def get_generation_settings(db: Session) -> DBGenerationSettings:
     """Return the generation settings row, creating it with defaults if missing."""
-    return _get_or_create_generation_row(db)
+    row = _get_or_create_generation_row(db)
+    apply_model_download_source(row.model_download_source)
+    return row
 
 
 def update_generation_settings(db: Session, patch: dict[str, Any]) -> DBGenerationSettings:
@@ -87,4 +90,6 @@ def update_generation_settings(db: Session, patch: dict[str, Any]) -> DBGenerati
     _apply_patch(row, patch)
     db.commit()
     db.refresh(row)
+    if "model_download_source" in patch:
+        apply_model_download_source(row.model_download_source)
     return row

@@ -246,6 +246,7 @@ export interface GenerationSettings {
   crossfade_ms: number;
   normalize_audio: boolean;
   autoplay_on_generate: boolean;
+  model_download_source: 'hf' | 'ms';
 }
 
 export type GenerationSettingsUpdate = Partial<GenerationSettings>;

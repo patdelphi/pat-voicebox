@@ -293,6 +293,7 @@ class GenerationSettingsResponse(BaseModel):
     crossfade_ms: int = Field(default=50, ge=0, le=500)
     normalize_audio: bool = True
     autoplay_on_generate: bool = True
+    model_download_source: str = Field(default="ms", pattern="^(hf|ms)$")
 
     class Config:
         from_attributes = True
@@ -305,6 +306,7 @@ class GenerationSettingsUpdate(BaseModel):
     crossfade_ms: Optional[int] = Field(default=None, ge=0, le=500)
     normalize_audio: Optional[bool] = None
     autoplay_on_generate: Optional[bool] = None
+    model_download_source: Optional[str] = Field(default=None, pattern="^(hf|ms)$")
 
 
 class MCPClientBindingResponse(BaseModel):

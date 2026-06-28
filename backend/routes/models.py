@@ -11,6 +11,7 @@ from sqlalchemy.orm import Session
 from .. import models
 from ..utils.platform_detect import get_backend_type
 from ..services.task_queue import create_background_task
+from ..utils.model_source import get_current_model_download_source_label
 from ..utils.progress import get_progress_manager
 from ..utils.tasks import get_task_manager
 
@@ -413,7 +414,7 @@ async def trigger_model_download(request: models.ModelDownloadRequest):
         model_name=request.model_name,
         current=0,
         total=0,
-        filename="Connecting to HuggingFace...",
+        filename=f"Connecting to {get_current_model_download_source_label()}...",
         status="downloading",
     )
 

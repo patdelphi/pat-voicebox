@@ -50,3 +50,18 @@
 - 用户：先commit，然后加一个功能，切换模型下载源：HF、MS
 - 助手：先检查当前变更并提交，再实现 HF/ModelScope 下载源切换。
 
+
+## 2026-06-28 模型下载源切换功能完成
+
+- 已实现：模型页新增下载源切换，支持 HF 和 ModelScope。
+- 后端：新增下载源设置字段、迁移、进程级 HuggingFace endpoint 应用逻辑。
+- 验证：新增后端单测通过，前端 TypeScript 检查通过，接口读写通过，浏览器可见切换控件。
+
+
+## 2026-06-28 默认源、启动脚本和中文 README
+
+- 默认模型下载源改为 ModelScope。
+- 新增 start-web.ps1，用于启动后端 API 和 Web 前端。
+- 新增 README.zh-CN.md 中文说明。
+- 验证：模型下载源单测、前端 TypeScript、PowerShell 脚本语法均通过。
+

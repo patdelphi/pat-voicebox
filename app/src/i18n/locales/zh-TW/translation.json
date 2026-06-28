@@ -1172,6 +1172,12 @@
       "reset": "重設",
       "pickerTitle": "選擇模型儲存資料夾"
     },
+    "downloadSource": {
+      "label": "下載源",
+      "description": "選擇新模型下載時優先連線的來源。",
+      "hf": "HuggingFace",
+      "ms": "ModelScope"
+    },
     "progress": {
       "connecting": "連線中…",
       "connectingHf": "連線至 HuggingFace 中…"

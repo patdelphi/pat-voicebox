@@ -39,9 +39,17 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Progress } from '@/components/ui/progress';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { useToast } from '@/components/ui/use-toast';
 import { apiClient } from '@/lib/api/client';
 import type { ActiveDownloadTask, HuggingFaceModelInfo, ModelStatus } from '@/lib/api/types';
+import { useGenerationSettings } from '@/lib/hooks/useSettings';
 import { useModelDownloadToast } from '@/lib/hooks/useModelDownloadToast';
 import { usePlatform } from '@/platform/PlatformContext';
 import { useServerStore } from '@/stores/serverStore';
@@ -132,6 +140,7 @@ export function ModelManagement() {
   const platform = usePlatform();
   const customModelsDir = useServerStore((state) => state.customModelsDir);
   const setCustomModelsDir = useServerStore((state) => state.setCustomModelsDir);
+  const { settings: generationSettings, update: updateGenerationSettings } = useGenerationSettings();
   const [migrating, setMigrating] = useState(false);
   const [migrationProgress, setMigrationProgress] = useState<{
     current: number;
@@ -146,6 +155,7 @@ export function ModelManagement() {
   const [consoleOpen, setConsoleOpen] = useState(false);
   const [dismissedErrors, setDismissedErrors] = useState<Set<string>>(new Set());
   const [localErrors, setLocalErrors] = useState<Map<string, string>>(new Map());
+  const modelDownloadSource = generationSettings?.model_download_source ?? 'ms';
 
   // Modal state
   const [selectedModel, setSelectedModel] = useState<ModelStatus | null>(null);
@@ -447,6 +457,35 @@ export function ModelManagement() {
       <div className="shrink-0 pb-4">
         <h1 className="text-lg font-semibold">{t('models.title')}</h1>
         <p className="text-sm text-muted-foreground">{t('models.subtitle')}</p>
+      </div>
+
+      {/* Model download source */}
+      <div className="shrink-0 pb-4 border-b mb-4">
+        <div className="flex items-center justify-between gap-3">
+          <div className="min-w-0">
+            <span className="text-xs text-muted-foreground">
+              {t('models.downloadSource.label')}
+            </span>
+            <p className="text-xs text-muted-foreground/70">
+              {t('models.downloadSource.description')}
+            </p>
+          </div>
+          <Select
+            value={modelDownloadSource}
+            onValueChange={(value) => {
+              updateGenerationSettings({ model_download_source: value as 'hf' | 'ms' });
+              queryClient.invalidateQueries({ queryKey: ['modelStatus'] });
+            }}
+          >
+            <SelectTrigger className="w-[160px] h-8 text-xs">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="hf">{t('models.downloadSource.hf')}</SelectItem>
+              <SelectItem value="ms">{t('models.downloadSource.ms')}</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       {/* Model storage location */}

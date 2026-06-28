@@ -1172,6 +1172,12 @@
       "reset": "リセット",
       "pickerTitle": "モデル保存フォルダを選択"
     },
+    "downloadSource": {
+      "label": "ダウンロード元",
+      "description": "新しいモデルのダウンロードで最初に接続するソースを選択します。",
+      "hf": "HuggingFace",
+      "ms": "ModelScope"
+    },
     "progress": {
       "connecting": "接続中…",
       "connectingHf": "HuggingFace に接続中…"
